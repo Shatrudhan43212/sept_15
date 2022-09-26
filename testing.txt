@@ -1,0 +1,182 @@
+<?php
+include("config.php");
+
+include('header.php');
+?>
+<form action="https://www.propertyrecord.com/disclaimer.php" method="post" name="addressSearch" onSubmit="return validateSearchAddressNew()">
+  <input type="hidden" name="Address_Search" value="Address_Search">
+  <input type="hidden" name="page" value="index.php">
+  <input type="hidden" name="pageforstats" value="index.php">
+  <input type="hidden" name="newindex" value="index">
+  <div class="banner">
+    <div class="container">
+      <h1>HOME VALUE REPORT</h1>
+      <p>FIND THE VALUE OF YOUR HOME TODAY!</p>
+      <div class="form_box">
+        <div class="adres">
+          <label class="hidden-xs">Address</label>
+          <input type="text" placeholder="Address" name="address">
+        </div>
+        <div class="city">
+          <label class="hidden-xs">City</label>
+          <input type="text" placeholder="City" name="city">
+        </div>
+        <div class="state">
+          <label class="hidden-xs">State</label>
+          <select name="states">
+            <option value="">Select State</option>
+            <?php
+            $sql_states = "select * from us_statelist where state_country = 'US'";
+            $result_states = exectuequery($sql_states) or die(mysql_error());
+            while ($value_states = mysql_fetch_assoc($result_states)) {
+              $statescode = $value_states['state_code'];
+              $statesnames = $value_states['state_name'];
+
+            ?><option value="<?php echo $statescode ?>"><?php echo $statesnames; ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <div class="zip">
+          <label class="hidden-xs">Zip</label>
+          <input type="text" placeholder="ZIP" name="zip">
+        </div>
+        <div class="srch_btn">
+          <button type="submit" id="">SEARCH</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="middel_body cancil_mid login_mid">
+  <div class="container">
+    <div class="row">
+      <div class="mid_warp">
+        <div class="top_hlp">
+          <h2>How To Log In To Your PropertyRecord.com Account </h2>
+          <p>Logging in to your PropertyRecord account is easy. Start searching today! </p>
+        </div>
+
+        <!--right_section-->
+        <div class="top_first_sec">
+          <div class="top_first_left">
+            <p class="small" style="text-align: center;">How-To: Logging in to your PropertyRecord Account </p>
+            <img src="images/lappi.jpg">
+            <p class="hidden-xs hidden-sm ln_gh_27">Did you forget your username or password? No problem — it happens to the best of us! Learn how to <span>reset your PropertyRecord password.</span> </p>
+          </div>
+          <div class="top_first_right">
+            <div class="our_process_sec">
+              <h2>How Do I Log In To My PropertyRecord Account? </h2>
+              <p>To log in to your PropertyRecord account, go to PropertyRecord.com, then click "Login" in the upper-right corner of your screen. Enter the login information you created when you first signed up for an account. </p>
+              <ul>
+                <li><img src="images/1.jpg">Go to PropertyRecord.com </li>
+                <li><img src="images/2.jpg">Click "Login" in the upper-right corner of your screen </li>
+                <li><img src="images/3.jpg">Enter the username and password you created when you first signed up for PropertyRecord </li>
+                <li><img src="images/4.jpg">Click the blue "Login" button </li>
+              </ul>
+            </div>
+            <p class="hidden-md hidden-lg ln_gh_27" style="margin-top: 40px">Did you forget your username or password? No problem — it happens to the best of us! Learn how to <span>reset your PropertyRecord password.</span> </p>
+          </div>
+        </div>
+        <div class="right_side_sec">
+          <div class="rport_point_box cancel_right_box login_right">
+            <h1 class="bg_hd">FREQUENTLY ASKED QUESTIONS </h1>
+            <h2>What Can I Access With My PropertyRecord Login?</h2>
+            <p>PropertyRecord members can access our database of public records. That may include birthdates, addresses, criminal records, and more. </p>
+            <h2>Is My Login Secure?</h2>
+            <p>Absolutely. We use 128-bit encryption to protect your account. You're completely protected every time you log in or browse public records. </p>
+
+            <h2>Will Customer Service Ask For My Password?</h2>
+            <p>No. We maintain several layers of security to protect your password. No one from our member care team will ask for your password. </p>
+
+            <h2>Help! I Lost My Username And Password</h2>
+            <p>No worries. On the login page, simply click the link that says "Forgot your username or password?" Enter your email address. You will receive a password reset link via email. </p>
+
+            <h2>What If I Forgot The Email I Used When I Signed Up?</h2>
+            <p> If you're still having problems logging in, contact our member care team at 1-855-482-6221. We can help you, but holiday hours may vary. Feel free to give us a call anytime, even if it's in the middle of the night! </p>
+
+            <h2>Why Can't I Access My Account? </h2>
+            <p>Your membership subscription automatically renews at the end of each billing cycle. If you can no longer access your account we may have run into a billing problem. Please contact our member care department. </p>
+          </div>
+        </div>
+        <!--right_section-->
+
+        <!--left_section-->
+        <div class="left_side_sec">
+          <div class="top_help_article">
+            <h1>Top Help Articles</h1>
+            <a href="#">Reset Your Password</a>
+            <a href="login.php">Login Issues</a>
+            <a href="canceling.php">Cancel Account</a>
+          </div>
+
+          <div class="custmer_supprt_sec">
+            <h3>Your Customer Service Agent</h3>
+            <div class="andy_box">
+              <img src="images/andy_img.jpg">
+              <div class="rig_txt">
+                <h4>Andy Wright</h4>
+                <p>and our customer service team are available to assist you</p>
+              </div>
+            </div>
+            <a href="#" onclick="LC_API.open_chat_window();return false;" id="_lpChatBtn3" class="live_cht_btn"><img src="images/cht_icn.jpg">Click for Live Chat</a>
+            <a href="#" onclick="LC_API.open_chat_window();return false;" id="_lpChatBtn3" class="agnt_cht_btn"><img src="images/live_agnt_icn.jpg"><span>Get in touch with us</span>Talk to a Live Agent</a>
+            <a href="#" class="agnt_cht_btn"><img src="images/suprt_icn.jpg"><span>Customer Support</span>1-855-482-6221</a>
+          </div>
+        </div>
+        <!--left_section-->
+      </div>
+    </div>
+  </div>
+</div>
+<?php include('footer.php'); ?>
+<script>
+  function trim(str) {
+    return str.replace(/^\s+|\s+$/g, '');
+  }
+
+  function validateSearchAddressNew() {
+    if (trim(document.addressSearch.address.value) == "") {
+      alert("Please enter address to search.");
+      document.addressSearch.address.focus();
+      return false;
+    }
+    if (trim(document.addressSearch.city.value) == "") {
+      alert("Please enter city to search.");
+      document.addressSearch.city.focus();
+      return false;
+    }
+    if (trim(document.addressSearch.states.value) == "") {
+      alert("Please enter state to search.");
+      document.addressSearch.states.focus();
+      return false;
+    }
+    if (trim(document.addressSearch.zip.value) == "") {
+      alert("Please enter Zip to search.");
+      document.addressSearch.zip.focus();
+      return false;
+    }
+    if (trim(document.addressSearch.zip.value) != "") {
+
+      var iChars = "0123456789";
+      for (var i = 0; i < document.addressSearch.zip.value.length; i++) {
+        if (iChars.indexOf(document.addressSearch.zip.value.charAt(i)) == -1) {
+          alert("Only numeric values are allowed in Zip to Search.");
+          document.addressSearch.zip.focus();
+          return false;
+        }
+      }
+      if (document.addressSearch.zip.value.length != 5) {
+        alert("Please enter 5-digit Zip to Search.");
+        document.addressSearch.zip.focus();
+        return false;
+      }
+    }
+
+    return true;
+  }
+</script>
+</body>
+
+</html>
